@@ -16,7 +16,7 @@ const config = {
 
 
 
-function make_plot(csv_data){
+function make_plot0(csv_data){
     //Filter our csv data for a particular country
     //Try logging country_data to the console to see what's in it
    
@@ -80,7 +80,7 @@ function unpack(rows, key) {
 
 
 //VIS 2
-function make_plot(csv_data){
+function make_plot1(csv_data){
     //Filter our csv data for a particular country
     //Try logging country_data to the console to see what's in it
     var country_data2 = csv_data.filter(d => d.country == "United States");
@@ -137,4 +137,7 @@ function unpack(rows, key) {
 }
 
 //Load the csv data and when loaded: run the make_plot function with that data
-Plotly.d3.csv("mortality.csv", make_plot);
+Plotly.d3.csv("mortality.csv", make_plot0);
+
+//Load the csv data and when loaded: run the make_plot function with that data
+Plotly.d3.csv("mortality.csv", make_plot1);
