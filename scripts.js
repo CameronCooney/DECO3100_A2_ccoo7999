@@ -19,22 +19,12 @@ const config = {
 function make_plot(csv_data){
     //Filter our csv data for a particular country
     //Try logging country_data to the console to see what's in it
-    var country_data0 = csv_data.filter(d => d.country == "United States");
+   
     var country_data1 = csv_data.filter(d => d.country == "Norway");
-    var country_data2 = csv_data.filter(d => d.country == "Australia");
+    
 
 
-    //Add our main data trace
-    var trace0 = [{
-        x: country_data0.map(d => d.year),
-        y: country_data0.map(d => d.mortality),
-        mode: 'lines',
-        name:'United States',
-        type: 'scatter',
-        line: {
-            color: lineColors.orange  
-        }
-    }]
+
         //Add our main data trace
     var trace1 = [{
         x: country_data1.map(d => d.year),
@@ -46,20 +36,10 @@ function make_plot(csv_data){
             color: lineColors.darkblue  
         }
     }]
-    var trace2 = [{
-        x: country_data2.map(d => d.year),
-        y: country_data2.map(d => d.mortality),
-        mode: 'lines',
-        name: 'Australia',
-        type: 'scatter',
-        line: {
-            color: lineColors.yellow 
-        }
-    }]
-    var data = [trace0, trace1, trace2];
+
 
     var layout1 = {
-        title: "Child Mortality in the Norway compared to the U.S. and Australia",
+        title: "Child Mortality in Norway over the last 70 years with Future Predictions",
         xaxis: {
             autorange: true,
             rangeselector: {
@@ -96,23 +76,21 @@ function unpack(rows, key) {
 }
 
 
-//Load the csv data and when loaded: run the make_plot function with that data
-Plotly.d3.csv("mortality.csv", make_plot);
+
 
 
 //VIS 2
 function make_plot(csv_data){
     //Filter our csv data for a particular country
     //Try logging country_data to the console to see what's in it
-    var country_data0 = csv_data.filter(d => d.country == "United States");
-    var country_data1 = csv_data.filter(d => d.country == "Norway");
-    var country_data2 = csv_data.filter(d => d.country == "Australia");
+    var country_data2 = csv_data.filter(d => d.country == "United States");
 
 
-    //Add our main data trace
-    var trace0 = [{
-        x: country_data0.map(d => d.year),
-        y: country_data0.map(d => d.mortality),
+
+    //Setting up graph 2 ft. US Stats, code sourced from Week 8 tutorial and Week 9 tutorial 
+    var trace2 = [{
+        x: country_data2.map(d => d.year),
+        y: country_data2.map(d => d.mortality),
         mode: 'lines',
         name:'United States',
         type: 'scatter',
@@ -120,31 +98,10 @@ function make_plot(csv_data){
             color: lineColors.orange  
         }
     }]
-        //Add our main data trace
-    var trace1 = [{
-        x: country_data1.map(d => d.year),
-        y: country_data1.map(d => d.mortality),
-        mode: 'lines',
-        name:'Norway',
-        type: 'scatter',
-        line: {
-            color: lineColors.darkblue  
-        }
-    }]
-    var trace2 = [{
-        x: country_data2.map(d => d.year),
-        y: country_data2.map(d => d.mortality),
-        mode: 'lines',
-        name: 'Australia',
-        type: 'scatter',
-        line: {
-            color: lineColors.yellow 
-        }
-    }]
-    var data = [trace0, trace1, trace2];
 
-    var layout1 = {
-        title: "Child Mortality in the Norway compared to the U.S. and Australia",
+
+    var layout2 = {
+        title: "Child Mortality in the United States over the last 70 years with Future Predictions",
         xaxis: {
             autorange: true,
             rangeselector: {
@@ -171,5 +128,13 @@ function make_plot(csv_data){
 
 
     //SECOND PLOT
-    Plotly.newPlot('vis1', trace0, layout1, config);
+    Plotly.newPlot('vis2', trace2, layout2, config);
 }
+function unpack(rows, key) {
+    return rows.map(function(row) {return row[key];});
+
+
+}
+
+//Load the csv data and when loaded: run the make_plot function with that data
+Plotly.d3.csv("mortality.csv", make_plot);

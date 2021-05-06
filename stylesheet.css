@@ -1,6 +1,13 @@
+html {
+	scroll-behavior: smooth;
+	font-size: 62.5%;
+}
+
 
 body {
-  background-color: #e4e4e4;
+  background: white;
+  text-align: center;
+  grid-template-columns: minmax(min-content, 200px) 1fr;
 }
 
 .div {
@@ -11,7 +18,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 300px 700px 300px;
+  grid-template-columns: 300px 1000px 300px;
   grid-template-rows: 300px 300px 300px;
   gap: 0px 0px;
   grid-template-areas:
@@ -21,6 +28,8 @@ body {
 }
 .header { 
   grid-area: header; 
+  background: white;
+  grid-template-columns: 300px 1000px 300px;
 }
 .nav { 
   grid-area: nav; 
@@ -29,47 +38,20 @@ body {
 .aside { grid-area: aside; }
 .main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 500px 500px;
+  grid-template-rows: 500px 500px 500px 500px;
   gap: 0px 0px;
   grid-template-areas:
-    "section1 section1"
-    "vis2 vis3"
-    "section2 section2"
-    "section2 section2"
-    "section2 section2";
+    "text1 text1"
+    "vis1 vis1"
+    "vis2 vis2"
+    "text2 text2";
   grid-area: main;
-}
-.section1 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 300px 300%;
-  gap: 0px 0px;
-  grid-template-areas:
-    "text1 text1 text1"
-    "vis1 vis1 vis1";
-  grid-area: section1;
 }
 .text1 { grid-area: text1; }
 .vis1 { grid-area: vis1; }
 .vis2 { grid-area: vis2; }
-.vis3 { grid-area: vis3; }
-.section2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "text2 text2 text2 text2"
-    "vis4 vis4 vis5 vis5"
-    "text3 text3 text3 text3";
-  grid-area: section2;
-}
 .text2 { grid-area: text2; }
-.vis4 { grid-area: vis4; }
-.vis5 { grid-area: vis5; }
-.text3 { grid-area: text3; }
-.vis3 { grid-area: vis3; }
 
 /*Import fonts*/
 
@@ -85,7 +67,10 @@ body {
   color: #000000;
 }
 
-p {margin-bottom: 1rem;}
+p {
+  margin-bottom: 1rem;
+  color: #3D3D3D;
+}
 
 h1, h2, h3, h4, h5 {
   margin: 3rem 0 1.38rem;
@@ -97,9 +82,15 @@ h1, h2, h3, h4, h5 {
 h1 {
   margin-top: 0;
   font-size: 4.209rem;
+  color: #67b7b6;
 }
 
-h2 {font-size: 3.157rem;}
+h2 {
+  font-size: 3.157rem;
+  color:#67b7b6;
+
+  
+}
 
 h3 {font-size: 2.369rem;}
 
@@ -108,3 +99,109 @@ h4 {font-size: 1.777rem;}
 h5 {font-size: 1.333rem;}
 
 small, .text_small {font-size: 0.75rem;}
+
+#nvus {
+  text-align: center;
+}
+
+#date1 {
+  width: 300px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+#norhdi {
+  width: 300px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+#ushdi {
+  width: 300px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+
+#date1 h2 {
+  border: 7px solid #67b7b6;
+  border-radius: 10px;  
+
+}
+
+#norhdi h2 {
+  border: 7px solid #67b7b6;
+  border-radius: 10px;  
+
+}
+#ushdi h2 {
+  border: 7px solid #67b7b6;
+  border-radius: 10px;  
+
+}
+
+
+
+/*NAV BAR STYLING, sourced from W3Schools and general knowledge*/
+
+
+nav {
+	grid-area: nav;
+	background: #67b7b6;
+	padding-top: 1em;
+  padding-bottom: 4000px;
+  position: sticky;
+}
+
+nav ul {
+	max-width: 500px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  max-height: 2000px;
+  position: sticky;
+}
+
+nav ul>ul {
+	margin-left: 1em;
+}
+
+nav ul li a {
+	display: block;
+	padding: 0.5rem 1rem;
+	color: white;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+	color: #3D3D3D;
+	text-decoration: underline;
+}
+
+
+@media screen and (max-width: 860px) {
+	body {
+		display: block;
+	}
+	nav {
+		display: none;
+	}
+	section {
+		padding: 0.5em;
+	}
+	figure {
+		margin: 0;
+	}
+	figure iframe {
+		width: 100%;
+	}
+	figure img {
+		width: 100%;
+	}
+}
+
+
