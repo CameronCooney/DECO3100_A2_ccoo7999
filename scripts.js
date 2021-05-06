@@ -13,74 +13,88 @@ const config = {
 
 }
 
-const plot1Div = document.getElementById("vis1");
-const plot2Div = document.getElementById("vis2");
-const plot3Div = document.getElementById("vis3");
 
-Plotly.d3.csv("https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Child%20mortality%2C%201950-2017%20(IHME%2C%202017)/Child%20mortality%2C%201950-2017%20(IHME%2C%202017).csv", function(rows){
 
-        var trace0 = {
-            type: "scatter",
-            mode: "lines",
-            name: "United States of America",
-            x: unpack(rows, "Year"),
-            y: unpack(rows, 'Child mortality 1950-2017 (IHME, 2018)'),
-            line: {
-                color: lineColors.darkblue
 
-            }
+function make_plot(csv_data){
+    //Filter our csv data for a particular country
+    //Try logging country_data to the console to see what's in it
+    var country_data0 = csv_data.filter(d => d.country == "United States");
+    var country_data1 = csv_data.filter(d => d.country == "Norway");
+    var country_data2 = csv_data.filter(d => d.country == "Australia");
 
+
+    //Add our main data trace
+    var trace0 = [{
+        x: country_data0.map(d => d.year),
+        y: country_data0.map(d => d.mortality),
+        mode: 'lines',
+        name:'United States',
+        type: 'scatter',
+        line: {
+            color: lineColors.orange  
         }
-
-        var trace1 = {
-            type: "scatter",
-            mode: "lines",
-            name: "Norway",
-            x: unpack(rows, "Year"),
-            y: unpack(rows, 'Child mortality 1950-2017 (IHME, 2018)'),
-            line: {
-                color: lineColors.orange
-
-            }
-
+    }]
+        //Add our main data trace
+    var trace1 = [{
+        x: country_data1.map(d => d.year),
+        y: country_data1.map(d => d.mortality),
+        mode: 'lines',
+        name:'Norway',
+        type: 'scatter',
+        line: {
+            color: lineColors.darkblue  
         }
-        var data1 = [trace0,trace1];
-
-        var layout1 = {
-            title: "Child Mortality in the US versus Norway",
-            xaxis: {
-                autorange: true,
-                rangeselector: {
-                    buttons: [{
-                        count: 50,
-                        label: 'Years', 
-                        step: '50y',
-                        stepmode: 'forward',
-
-                    },{
-                        count: 0,
-                        label: 'Child Mortality',
-                        step: '20imr',
-                        stepmode:'forward',
-
-
-
-                    },{
-                        step: 'all',
-                    }]
-                },
-                type: 'date',
-            }
-
-
+    }]
+    var trace2 = [{
+        x: country_data2.map(d => d.year),
+        y: country_data2.map(d => d.mortality),
+        mode: 'lines',
+        name: 'Australia',
+        type: 'scatter',
+        line: {
+            color: lineColors.yellow 
         }
-    Plotly.newPlot (plot1Div, data1, layout1, config);
-});
+    }]
+    var data = [trace0, trace1, trace2];
+
+    var layout1 = {
+        title: "Child Mortality in the Norway compared to the U.S. and Australia",
+        xaxis: {
+            autorange: true,
+            rangeselector: {
+                buttons: [{
+                    count: 10,
+                    label: '10 Years', 
+                    step: 'year',
+                    stepmode: 'forward',
+                },{
+                    count: 50,
+                    label: '50 Years',
+                    step: 'year',
+                    stepmode:'forward',
+                },{
+                    count: 70,
+                    label: 'all',
+                    step: 'year',
+                    stepmode: 'forward',
+                }]
+            },
+            type: 'date',
+        }
+    }
+
+
+    //Draw the plot at our div
+    Plotly.newPlot('vis1', data, layout1, config);
+}
 
 function unpack(rows, key) {
     return rows.map(function(row) {return row[key];});
 
 
-
 }
-console.log(trace0);
+
+
+//Load the csv data and when loaded: run the make_plot function with that data
+Plotly.d3.csv("mortality.csv", make_plot);
