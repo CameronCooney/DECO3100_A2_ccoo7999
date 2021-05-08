@@ -10,6 +10,7 @@
   <meta name="keywords" content="datavis, child mortality, HDI">
   <link rel="stylesheet" href="stylesheet.css" type="text/css">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js'></script>
   </head>
   <body>
     <!--Setting up the grid-->
@@ -29,22 +30,31 @@
           </ul>
         </nav>
       </div>
-      <div class="aside"></div>
+      <div class="aside">
+
+      </div>
       <div class="main">
         <div class="text1" id="nvus">
           <div id="date1">
             <h2><b>2000</b></h2>
             <p>The year that Norway hit the UN Child Mortality Rate goal of 5</p>
           </div>
+          <br>
           <div id="norhdi">
             <h2><b>0.954</b></h2>
             <p>The current HDI (Human Development Index) for Norway</p>
           </div>
+          <br>
           <div id="ushdi">
             <h2><b>0.92</b></h2>
             <p>The current HDI (Human Development Index) for the United States</p>
           </div>
+          <br>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="vis1" id="vis1"></div>
         <div class="vis2" id="vis2"></div>
         <div class="text2" id="diff"></div>

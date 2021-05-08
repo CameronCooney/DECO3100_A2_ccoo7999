@@ -49,8 +49,21 @@ body {
   grid-area: main;
 }
 .text1 { grid-area: text1; }
-.vis1 { grid-area: vis1; }
-.vis2 { grid-area: vis2; }
+.vis1 { 
+  grid-area: vis1; 
+  padding-bottom: 100%;
+  margin-top: 450px;
+  width: 500px;
+  height: fit-content;
+  
+}
+.vis2 { 
+  grid-area: vis2;
+  margin-top: 450px;
+  padding-top: 100px;
+
+
+}
 .text2 { grid-area: text2; }
 
 /*Import fonts*/
@@ -127,20 +140,24 @@ small, .text_small {font-size: 0.75rem;}
 
 
 #date1 h2 {
+  padding-top: 20px;
   border: 7px solid #67b7b6;
-  border-radius: 10px;  
+  border-radius: 80%;  
+  padding-bottom: 20px;
 
 }
 
 #norhdi h2 {
+  padding-top: 20px;
   border: 7px solid #67b7b6;
-  border-radius: 10px;  
-
+  border-radius: 80%;  
+  padding-bottom: 20px;
 }
 #ushdi h2 {
+  padding-top: 20px;
   border: 7px solid #67b7b6;
-  border-radius: 10px;  
-
+  border-radius: 80%;  
+  padding-bottom: 20px;
 }
 
 
