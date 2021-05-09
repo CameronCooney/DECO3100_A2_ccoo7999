@@ -19,15 +19,17 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: 300px 1000px 300px;
-  grid-template-rows: 300px 300px 300px;
+  grid-template-rows: 500px 2000px 700px 1000px;
   gap: 0px 0px;
   grid-template-areas:
     "header header header"
     "nav main aside"
-    "nav main aside";
+    "nav main aside"
+    "nav ref aside";
 }
 .header { 
   grid-area: header; 
+  padding-top: 5%;
   background: white;
   grid-template-columns: 300px 1000px 300px;
 }
@@ -36,6 +38,7 @@ body {
 
 }
 .aside { grid-area: aside; }
+
 .main {
   display: grid;
   grid-template-columns: 500px 500px;
@@ -48,23 +51,42 @@ body {
     "text2 text2";
   grid-area: main;
 }
-.text1 { grid-area: text1; }
+.text1 { 
+  grid-area: text1; 
+}
+
+
 .vis1 { 
   grid-area: vis1; 
-  padding-bottom: 100%;
-  margin-top: 450px;
-  width: 500px;
-  height: fit-content;
+  text-align: center;
+  margin-left: 10%;
+  margin-top: 370px;
+  padding-top: 100px;
+  
   
 }
 .vis2 { 
   grid-area: vis2;
+  margin-left: 10%;
+  text-align: center;
   margin-top: 450px;
   padding-top: 100px;
-
+  
 
 }
-.text2 { grid-area: text2; }
+.text2 { 
+  grid-area: text2; 
+  margin-top: 500px;
+  margin-left: 100px;
+
+}
+
+.ref {
+  grid-area: ref;
+  margin-top: auto;
+  margin-left: 100px;
+
+}
 
 /*Import fonts*/
 
@@ -77,8 +99,12 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   line-height: 1.75;
-  color: #000000;
+  color: #3d3d3d;
 }
+
+/*text formatting, sourced from W3Schools and my own general knowledge*/
+
+
 
 p {
   margin-bottom: 1rem;
@@ -109,12 +135,24 @@ h3 {font-size: 2.369rem;}
 
 h4 {font-size: 1.777rem;}
 
+#diff h3 {
+    color: #ffd405;
+
+}
+#diff h4{
+    color: #ff9912;
+
+}
+
 h5 {font-size: 1.333rem;}
 
 small, .text_small {font-size: 0.75rem;}
 
+/*1st set of text styling, sourced from W3Schools and my own general knowledge*/
+
 #nvus {
   text-align: center;
+  margin: auto;
 }
 
 #date1 {
@@ -141,23 +179,26 @@ small, .text_small {font-size: 0.75rem;}
 
 #date1 h2 {
   padding-top: 20px;
-  border: 7px solid #67b7b6;
+  border: 7px solid #ffd405;
   border-radius: 80%;  
   padding-bottom: 20px;
+  color: #ffd405;
 
 }
 
 #norhdi h2 {
   padding-top: 20px;
-  border: 7px solid #67b7b6;
+  border: 7px solid #ff9912;
   border-radius: 80%;  
   padding-bottom: 20px;
+  color: #ff9912;
 }
 #ushdi h2 {
   padding-top: 20px;
   border: 7px solid #67b7b6;
   border-radius: 80%;  
   padding-bottom: 20px;
+  color: #67b7b6;
 }
 
 

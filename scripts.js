@@ -3,7 +3,8 @@
 const lineColors = {
     darkblue: "#67b7b6",
     yellow: "#ffd405",
-    orange: "#ff9912"
+    orange: "#ff9912",
+    lightblue: "#86efec"
 }
 
 /*PLOTLY SETTINGS*/
@@ -63,7 +64,10 @@ function make_plot0(csv_data){
             x: extension_x,
             y: extension_y,
             mode: 'lines',
-            name: 'Future Norway'
+            name: 'Future Norway',
+            line: {
+                color: lineColors.lightblue
+            }
         
 
     }]
@@ -71,8 +75,10 @@ function make_plot0(csv_data){
 
     var layout1 = {
         title: "Child Mortality in Norway over the last 70 years with Future Predictions",
+        
         xaxis: {
             autorange: true,
+            automargin: true,
             rangeselector: {
                 buttons: [{
                     count: 10,
@@ -159,6 +165,9 @@ function make_plot1(csv_data){
             y: extension_y,
             mode: 'lines',
             name: 'Future United States',
+            line: {
+                color: lineColors.yellow
+            }
         
 
     }]
@@ -168,6 +177,7 @@ function make_plot1(csv_data){
         title: "Child Mortality in the United States over the last 70 years with Future Predictions",
         xaxis: {
             autorange: true,
+            automargin: true,
             rangeselector: {
                 buttons: [{
                     count: 10,
