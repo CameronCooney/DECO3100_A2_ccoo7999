@@ -75,10 +75,13 @@ function make_plot0(csv_data){
 
     var layout1 = {
         title: "Child Mortality in Norway over the last 70 years with Future Predictions",
-        
+        automargin: true,
+        autosize: false,
+        height: 500,
+        width: 1000,
         xaxis: {
-            autorange: true,
             automargin: true,
+            autorange: true,
             rangeselector: {
                 buttons: [{
                     count: 10,
@@ -157,7 +160,7 @@ function make_plot1(csv_data){
         name:'United States',
         type: 'scatter',
         line: {
-            color: lineColors.orange  
+            color: lineColors.darkblue  
         }},
         //adding our extension as a second trace
         {
@@ -166,7 +169,7 @@ function make_plot1(csv_data){
             mode: 'lines',
             name: 'Future United States',
             line: {
-                color: lineColors.yellow
+                color: lineColors.lightblue
             }
         
 
@@ -175,9 +178,12 @@ function make_plot1(csv_data){
 
     var layout2 = {
         title: "Child Mortality in the United States over the last 70 years with Future Predictions",
+        automargin: true,
+        autosize: false,
+        height: 500,
+        width: 1000,
         xaxis: {
             autorange: true,
-            automargin: true,
             rangeselector: {
                 buttons: [{
                     count: 10,
